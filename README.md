@@ -9,7 +9,7 @@ OmniTrace is a **plug-and-play framework for generation-time attribution** in mu
 ## 🧠 Overview
 
 <p align="center">
-  <img src="docs/overview.png" width="100%" />
+  <img src="overview.png" width="100%" />
 </p>
 **Figure:** OmniTrace performs generation-time token tracing in decoder-only multimodal LLMs, producing unified span-level attribution across text, image, audio, and video inputs.
 
