@@ -72,23 +72,15 @@ def sample_to_trace_request(sample: Dict[str, Any], repo_root: Path) -> Dict[str
         if audio_path is None:
             raise ValueError("Audio sample missing audio path.")
 
-        # Heuristic:
-        # - summarization samples often only contain audio block
-        # - QA samples often contain a question text block
-        if text_block is None:
-            trace_kwargs = {
-                "prompt": prompt,
-                "audio": audio_path,
-                "audio_chunk_mode": "semantic",
-            }
-        else:
-            # keep dataset prompt as the actual prompt
-            # text_block is still preserved in output for reference
-            trace_kwargs = {
-                "prompt": prompt + text_block if prompt else text_block,
-                "audio": audio_path,
-                "audio_chunk_mode": "time_bins",
-            }
+        full_prompt = prompt
+        if text_block:
+            full_prompt = f"{prompt}{text_block}" if prompt else text_block
+
+        trace_kwargs = {
+            "prompt": full_prompt,
+            "audio": audio_path,
+            "audio_chunk_mode": "time_bins",
+        }
 
         return {
             "modality": "audio",
@@ -104,7 +96,7 @@ def sample_to_trace_request(sample: Dict[str, Any], repo_root: Path) -> Dict[str
 
         for block in question_blocks:
             if "video" in block:
-                video_path = _resolve_media_path(block["video"], repo_root)
+                video_path = resolve_media_path(block["video"], repo_root)
             elif "text" in block:
                 text_block = block["text"]
 
@@ -172,6 +164,7 @@ def run_demo(
     method: str,
     output_path: str | None,
     limit: int | None,
+    use_asr_for_audio: bool = False,
 ) -> List[Dict[str, Any]]:
     repo_root = Path(".").resolve()
     items = load_json(questions_path)
@@ -197,6 +190,7 @@ def run_demo(
         request = sample_to_trace_request(sample, repo_root=repo_root)
         modality = request["modality"]
         trace_kwargs = request["trace_kwargs"]
+        if use_asr_for_audio: trace_kwargs["audio_chunk_mode"] = "semantic"
 
         print(f"Detected modality: {modality}")
 

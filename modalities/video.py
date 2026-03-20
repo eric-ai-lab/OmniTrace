@@ -4,6 +4,7 @@ import logging
 import os
 import subprocess
 from typing import Any, Dict, List, Optional
+import cv2
 
 from backends import prepare_inputs, generate_with_attn
 from constants import TEMPORAL_PATCH_SIZE, DEFAULT_VIDEO_FPS
@@ -67,19 +68,33 @@ def get_video_duration(video_path: str) -> float:
     """
     Read video duration in seconds using ffprobe.
     """
-    result = subprocess.run(
-        [
-            "ffprobe",
-            "-v", "error",
-            "-show_entries", "format=duration",
-            "-of", "default=noprint_wrappers=1:nokey=1",
-            video_path,
-        ],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
-    return float(result.stdout.strip())
+    try:
+        result = subprocess.run(
+            [
+                "ffprobe",
+                "-v", "error",
+                "-show_entries", "format=duration",
+                "-of", "default=noprint_wrappers=1:nokey=1",
+                video_path,
+            ],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return float(result.stdout.strip())
+    except:
+        cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            raise RuntimeError(f"Cannot open video: {video_path}")
+
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        frame_count = cap.get(cv2.CAP_PROP_FRAME_COUNT)
+        cap.release()
+
+        if fps <= 0:
+            raise RuntimeError("Invalid FPS, cannot compute duration")
+
+        return frame_count / fps
 
 
 def merge_consecutive_time_bins(
