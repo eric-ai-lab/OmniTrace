@@ -28,16 +28,7 @@ OmniTrace relies on multimodal backends. Please follow the official setup instru
 - Qwen2.5-Omni: https://github.com/QwenLM/Qwen2.5-Omni  
 - MiniCPM-o: https://github.com/OpenBMB/MiniCPM-o  
 
-We recommend creating a dedicated conda environment for each backend.
-
-Example:
-
-```bash
-conda create -n omnitrace python=3.10 -y
-conda activate omnitrace
-```
-
-Then install dependencies following the official repositories above.
+We recommend creating a dedicated conda environment for each backend. Then install dependencies following the official repositories above.
 
 ---
 
