@@ -147,7 +147,7 @@ Example:
 {
     "prompt": "Summarize the conversation.\n",
     "question": [
-        { "text": "<TURN> \"I have most enjoyed painting poor, delicate children. I didn't know whether that will interest anyone.\" - Helene Schjerfbeck (1862-1946). The Convalescent (1888) is her most famous example of this. It shows the girl getting her energy back."},
+        {"text": "<TURN> \"I have most enjoyed painting poor, delicate children. I didn't know whether that will interest anyone.\" - Helene Schjerfbeck (1862-1946). The Convalescent (1888) is her most famous example of this. It shows the girl getting her energy back."},
         {"image": "examples/media/-288980723939800020.jpg"},
         {"text": "<TURN> Thank you for sharing this. 'The Wounded Angel' is my favourite painting in AteneumMuseum"},
         {"image": "examples/media/8846049217870534914.jpg"},
