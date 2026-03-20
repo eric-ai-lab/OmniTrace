@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: omnitrace
-Version: 0.1.0
+Version: 0.1.1
 Summary: OmniTrace: multimodal attribution for generative models
 Author: Your Name
 Requires-Python: >=3.9
@@ -15,10 +15,19 @@ Requires-Dist: soundfile
 Requires-Dist: librosa
 Requires-Dist: spacy
 
-# OmniTrace: A Unified Framework for Generation-Time Attribution in Omni-Modal LLMs
-[📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](#)
+# OmniTrace
+This is the official repository for the paper:
+**"OmniTrace: A Unified Framework for Generation-Time Attribution in Omni-Modal LLMs"**
 
-#### ✨ OmniTrace is a **generation-time attribution framework** that traces model outputs back to multimodal inputs (text, image, audio, video) in a unified way.
+[📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](https://pypi.org/project/omnitrace/0.1.0/)
+
+## 🧠 Overview
+
+<p align="center">
+  <img src="overview.png" width="80%" />
+</p>
+
+OmniTrace is a **plug-and-play framework for generation-time attribution** in multimodal large language models (text, image, audio, video).
 - Works for **decoder-only multimodal LLMs**
 - Supports **text, image, audio, and video**
 - Provides **generation-time attribution**
@@ -29,17 +38,31 @@ Requires-Dist: spacy
 
 ## 🚀 Installation
 
-### Option 1: Install from GitHub (recommended)
+### 🔧 Step 1: Install Backend Environments (Required)
+
+OmniTrace relies on multimodal backends. Please follow the official setup instructions:
+
+- Qwen2.5-Omni: https://github.com/QwenLM/Qwen2.5-Omni  
+- MiniCPM-o: https://github.com/OpenBMB/MiniCPM-o  
+
+We recommend creating a dedicated conda environment for each backend. Then install dependencies following the official repositories above.
+
+---
+
+### 📦 Step 2: Install OmniTrace
+
+#### Option 1: Install from PyPI (recommended)
+
+```bash
+pip install omnitrace
+```
+
+#### Option 2: Install from GitHub
 
 ```bash
 git clone https://github.com/Jackie-2000/OmniTrace.git
 cd OmniTrace
 pip install -e .
-```
-
-### Option 2: (Coming soon)
-```bash
-pip install omnitrace
 ```
 
 ## ⚡ Quick Start (Python API)
@@ -224,6 +247,42 @@ python scripts/run_demo.py trace \
   --model_name qwen \
   --method attmean
 ```
+
+---
+
+## 📊 Attribution Performance
+
+**Attribution performance across omni-modal models and tasks.**  
+OT<sub>AttMean</sub>, OT<sub>RawAtt</sub>, and OT<sub>AttGrads</sub> denote OmniTrace instantiated with mean-pooled attention, raw attention, and gradient-based scoring signals, respectively.  
+$\dagger$ indicates results not reported due to computational constraints.  
+$\times$ indicates the method is not applicable.
+
+---
+
+### Qwen2.5-Omni-7B
+
+| Method | Text F1 (Summ.) | Image F1 (Summ.) | Image F1 (QA) | Time F1 (Audio Summ.) | Time F1 (Audio QA) | Time F1 (Video QA) |
+|--------|----------------|------------------|---------------|----------------------|--------------------|--------------------|
+| **OT<sub>AttMean</sub>** | **75.66** | **76.59** | 56.60 | **83.12** | **49.90** | **40.16** |
+| OT<sub>RawAtt</sub> | 72.51 | 51.82 | **65.44** | 76.69 | 47.64 | 36.53 |
+| OT<sub>AttGrads</sub> | 67.70 | 42.24 | 65.02 | † | 47.56 | † |
+| Self-Attribution | 9.25 | 40.60 | 61.03 | 4.43 | 29.01 | 13.67 |
+| Embed<sub>processor</sub> | 17.30 | 14.55 | 36.88 | × | × | × |
+| Embed<sub>CLIP</sub> | 17.20 | 3.54 | 6.32 | × | × | × |
+| Random | 10.98 | 8.38 | 24.70 | × | × | × |
+
+---
+
+### MiniCPM-o 4.5-9B
+
+| Method | Text F1 (Summ.) | Image F1 (Summ.) | Image F1 (QA) | Time F1 (Audio Summ.) | Time F1 (Audio QA) | Time F1 (Video QA) |
+|--------|----------------|------------------|---------------|----------------------|--------------------|--------------------|
+| OT<sub>AttMean</sub> | 30.57 | 75.43 | 37.00 | 33.52 | **46.94** | **22.85** |
+| **OT<sub>RawAtt</sub>** | **37.32** | **76.46** | **45.41** | **49.21** | 41.06 | 21.59 |
+| Self-Attribution | 9.06 | 66.53 | 39.39 | 0.08 | 34.66 | 18.26 |
+| Embed<sub>processor</sub> | 18.02 | 7.14 | 5.98 | × | × | × |
+| Embed<sub>CLIP</sub> | 17.98 | 5.55 | 5.32 | × | × | × |
+| Random | 12.05 | 10.03 | 22.96 | × | × | × |
 
 ---
 

@@ -275,6 +275,55 @@ $\times$ indicates the method is not applicable.
 - Use relative paths for media files
 - `attgrads` may require high-memory GPUs (e.g., H100/H200)
 
+---
+
+## 🔧 Extending OmniTrace
+
+You can easily customize OmniTrace to support new models or attribution methods.
+
+### ➕ Add a New Model
+
+1. Add your model backend implementation under:
+
+```
+src/omnitrace/backends/
+```
+
+2. Register any model-specific tokens (e.g., special tokens, modality tokens) in:
+
+```
+src/omnitrace/constants.py
+```
+
+3. Follow existing backends (e.g., `qwen.py`, `minicpm.py`) as reference for:
+   - input formatting
+   - multimodal handling
+   - generation interface
+
+---
+
+### ➕ Add a New Attribution Method
+
+1. Implement your attribution scoring function in:
+
+```
+src/omnitrace/core/generation.py
+```
+
+2. Ensure your method produces a **token-level attribution tensor** with the same shape as existing methods.
+
+3. Follow existing implementations (`attmean`, `attraw`, `attgrads`) to:
+   - integrate with decoding
+   - construct token-to-source mappings
+   - maintain compatibility with downstream aggregation
+
+---
+
+### ⚠️ Notes
+
+- Keep output tensor shapes consistent to ensure compatibility with the OmniTrace pipeline.
+- Reuse existing utilities for token alignment and span aggregation when possible.
+- Test new methods on small examples before scaling to full datasets.
 
 ---
 
