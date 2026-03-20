@@ -1,5 +1,7 @@
+README.md
 pyproject.toml
 src/omnitrace/__init__.py
+src/omnitrace/cli.py
 src/omnitrace/constants.py
 src/omnitrace/gradients.py
 src/omnitrace/tracer.py
@@ -7,6 +9,8 @@ src/omnitrace/utils.py
 src/omnitrace.egg-info/PKG-INFO
 src/omnitrace.egg-info/SOURCES.txt
 src/omnitrace.egg-info/dependency_links.txt
+src/omnitrace.egg-info/entry_points.txt
+src/omnitrace.egg-info/requires.txt
 src/omnitrace.egg-info/top_level.txt
 src/omnitrace/audio_processing/__init__.py
 src/omnitrace/audio_processing/semantic_chunking.py

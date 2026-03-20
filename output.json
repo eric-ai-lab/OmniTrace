@@ -1,0 +1,958 @@
+[
+  {
+    "id": 1,
+    "task": "summarization",
+    "source_dataset": "MMDialog",
+    "modality": "image_text",
+    "prompt": "Summarize the conversation.\n",
+    "question": [
+      {
+        "text": "<TURN> \"I have most enjoyed painting poor, delicate children. I didn't know whether that will interest anyone.\" - Helene Schjerfbeck (1862-1946). The Convalescent (1888) is her most famous example of this. It shows the girl getting her energy back."
+      },
+      {
+        "image": "examples/media/-288980723939800020.jpg"
+      },
+      {
+        "text": "<TURN> Thank you for sharing this. 'The Wounded Angel' is my favourite painting in AteneumMuseum"
+      },
+      {
+        "image": "examples/media/8846049217870534914.jpg"
+      },
+      {
+        "image": "examples/media/-4402135406098345009.jpg"
+      },
+      {
+        "text": "<TURN> That's a very nice indeed!"
+      }
+    ],
+    "answer": null,
+    "response": "The conversation is about paintings. Helene enjoyed painting children. The speaker's favourite painting is 'The wounded angel'.",
+    "attribution": {
+      "gen_chunks": [
+        "The conversation is about paintings.",
+        "Helene enjoyed painting children.",
+        "The speaker's favourite painting is 'The wounded angel'."
+      ],
+      "per_chunk_attribution": [
+        {
+          "chunk_id": 0,
+          "chunk_text": "The conversation is about paintings.",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 0,
+              "source_text": "Summarize the conversation."
+            }
+          ]
+        },
+        {
+          "chunk_id": 1,
+          "chunk_text": "Helene enjoyed painting children.",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "\"I have most enjoyed painting poor, delicate children."
+            },
+            {
+              "source_chunk_id": 4,
+              "source_text": "- Helene Schjerfbeck (1862-1946)."
+            }
+          ]
+        },
+        {
+          "chunk_id": 2,
+          "chunk_text": "The speaker's favourite painting is 'The wounded angel'.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 2
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 9,
+              "source_text": "'The Wounded Angel' is my favourite painting in AteneumMuseum"
+            }
+          ]
+        }
+      ]
+    },
+    "input_text_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          0,
+          5
+        ],
+        "text": "Summarize the conversation."
+      },
+      {
+        "chunk_id": 1,
+        "input_id_span": [
+          6,
+          8
+        ],
+        "text": "<TURN>"
+      },
+      {
+        "chunk_id": 2,
+        "input_id_span": [
+          9,
+          19
+        ],
+        "text": "\"I have most enjoyed painting poor, delicate children."
+      },
+      {
+        "chunk_id": 3,
+        "input_id_span": [
+          20,
+          29
+        ],
+        "text": "I didn't know whether that will interest anyone.\""
+      },
+      {
+        "chunk_id": 4,
+        "input_id_span": [
+          30,
+          47
+        ],
+        "text": "- Helene Schjerfbeck (1862-1946)."
+      },
+      {
+        "chunk_id": 5,
+        "input_id_span": [
+          48,
+          65
+        ],
+        "text": "The Convalescent (1888) is her most famous example of this."
+      },
+      {
+        "chunk_id": 6,
+        "input_id_span": [
+          66,
+          74
+        ],
+        "text": "It shows the girl getting her energy back."
+      },
+      {
+        "chunk_id": 7,
+        "input_id_span": [
+          158,
+          160
+        ],
+        "text": "<TURN>"
+      },
+      {
+        "chunk_id": 8,
+        "input_id_span": [
+          161,
+          166
+        ],
+        "text": "Thank you for sharing this."
+      },
+      {
+        "chunk_id": 9,
+        "input_id_span": [
+          167,
+          182
+        ],
+        "text": "'The Wounded Angel' is my favourite painting in AteneumMuseum"
+      },
+      {
+        "chunk_id": 10,
+        "input_id_span": [
+          349,
+          351
+        ],
+        "text": "<TURN>"
+      },
+      {
+        "chunk_id": 11,
+        "input_id_span": [
+          352,
+          358
+        ],
+        "text": "That's a very nice indeed!"
+      }
+    ],
+    "input_image_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          75,
+          157
+        ]
+      },
+      {
+        "chunk_id": 1,
+        "input_id_span": [
+          183,
+          265
+        ]
+      },
+      {
+        "chunk_id": 2,
+        "input_id_span": [
+          266,
+          348
+        ]
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "task": "summarization",
+    "source_dataset": "MMDialog",
+    "modality": "image_text",
+    "prompt": "Summarize the conversation.\n",
+    "question": [
+      {
+        "text": "<TURN> \" do you know where I can find Stroh Austrian rum in the yvr area?\" Cc:"
+      },
+      {
+        "text": "<TURN> We have Stroh 54 tho wish we had the 80...I prefer it."
+      },
+      {
+        "text": "<TURN> Would that happen to be the Stroh 45 purchased circa 2002?:winking_face:"
+      },
+      {
+        "text": "<TURN> From my personal stash \"80\"&amp;\"Obst\" are delicious"
+      },
+      {
+        "image": "examples/media/-4010549373890812106.jpg"
+      },
+      {
+        "text": "<TURN> never had before, but high-proof austrian spiced rum so feels right."
+      }
+    ],
+    "answer": null,
+    "response": "The conversation is is about finding Stroth Austrian rum. The first person asks where to find it in the YVR area. The second person responds that they have Storh 84 but not the 40. The third person then asks if it is the Storoh 44 purchased around 2. The fourth person then says that they prefer the 50 and that the 30 and \"Obst are delicious. The fifth person then responds that he has never had it before but that it is a high-proof Austrian spiced.",
+    "attribution": {
+      "gen_chunks": [
+        "The conversation is is about finding Stroth Austrian rum.",
+        "The first person asks where to find it in the YVR area.",
+        "The second person responds that they have Storh 84 but not the 40.",
+        "The third person then asks if it is the Storoh 44 purchased around 2.",
+        "The fourth person then says that they prefer the 50 and that the 30 and \"Obst are delicious.",
+        "The fifth person then responds that he has never had it before but that it is a high-proof Austrian spiced."
+      ],
+      "per_chunk_attribution": [
+        {
+          "chunk_id": 0,
+          "chunk_text": "The conversation is is about finding Stroth Austrian rum.",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 1,
+              "source_text": "<TURN> \" do you know where I can find Stroh Austrian rum in the yvr area?\""
+            },
+            {
+              "source_chunk_id": 0,
+              "source_text": "Summarize the conversation."
+            }
+          ]
+        },
+        {
+          "chunk_id": 1,
+          "chunk_text": "The first person asks where to find it in the YVR area.",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 1,
+              "source_text": "<TURN> \" do you know where I can find Stroh Austrian rum in the yvr area?\""
+            }
+          ]
+        },
+        {
+          "chunk_id": 2,
+          "chunk_text": "The second person responds that they have Storh 84 but not the 40.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Cc:<TURN> We have Stroh 54 tho wish we had the 80...I prefer it.<TURN>"
+            }
+          ]
+        },
+        {
+          "chunk_id": 3,
+          "chunk_text": "The third person then asks if it is the Storoh 44 purchased around 2.",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 3,
+              "source_text": "Would that happen to be the Stroh 45 purchased circa 2002?:winking_face:<TURN>"
+            }
+          ]
+        },
+        {
+          "chunk_id": 4,
+          "chunk_text": "The fourth person then says that they prefer the 50 and that the 30 and \"Obst are delicious.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 4,
+              "source_text": "From my personal stash \"80\"&amp;\"Obst\" are delicious"
+            }
+          ]
+        },
+        {
+          "chunk_id": 5,
+          "chunk_text": "The fifth person then responds that he has never had it before but that it is a high-proof Austrian spiced.",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 5,
+              "source_text": "<TURN> never had before, but high-proof austrian spiced rum so feels right."
+            }
+          ]
+        }
+      ]
+    },
+    "input_text_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          0,
+          5
+        ],
+        "text": "Summarize the conversation."
+      },
+      {
+        "chunk_id": 1,
+        "input_id_span": [
+          6,
+          27
+        ],
+        "text": "<TURN> \" do you know where I can find Stroh Austrian rum in the yvr area?\""
+      },
+      {
+        "chunk_id": 2,
+        "input_id_span": [
+          28,
+          55
+        ],
+        "text": "Cc:<TURN> We have Stroh 54 tho wish we had the 80...I prefer it.<TURN>"
+      },
+      {
+        "chunk_id": 3,
+        "input_id_span": [
+          56,
+          81
+        ],
+        "text": "Would that happen to be the Stroh 45 purchased circa 2002?:winking_face:<TURN>"
+      },
+      {
+        "chunk_id": 4,
+        "input_id_span": [
+          82,
+          96
+        ],
+        "text": "From my personal stash \"80\"&amp;\"Obst\" are delicious"
+      },
+      {
+        "chunk_id": 5,
+        "input_id_span": [
+          180,
+          198
+        ],
+        "text": "<TURN> never had before, but high-proof austrian spiced rum so feels right."
+      }
+    ],
+    "input_image_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          97,
+          179
+        ]
+      }
+    ]
+  },
+  {
+    "id": 262,
+    "task": "vqa",
+    "source_dataset": "MANTIS",
+    "modality": "image_text",
+    "prompt": "Answer the question based on the images provided. Explain your reasoning step by step.\n",
+    "question": [
+      {
+        "text": "Is the time shown in clock or watch in both <image> and <image> the same?\n(A) Yes, they are both at 9 o'clock\n(B) Yes, they are both at 12 o'clock\n(C) No, they show different time"
+      },
+      {
+        "image": "examples/media/262_0.jpg"
+      },
+      {
+        "image": "examples/media/262_1.jpg"
+      }
+    ],
+    "answer": "No, they show different time",
+    "response": "To determine if the time is the same in both images, let's analyze each one step by:\n\n1. **First Image (Watch on a Pear):**\n   - The watch face is visible.\n   - It shows the time as 10:10.\n\n2. **Second Image (Person Holding a Clock):**\n  - The clock is held in front of the person.\n  - It also shows the same time as the watch, which is 11:11.\n\nGiven this both images show the same times, the correct answer is:\n\n(A) They are both show the time 1:00",
+    "attribution": {
+      "gen_chunks": [
+        "To determine if the time is the same in both images, let's analyze each one step by:",
+        "1. **First Image (Watch on a Pear):**",
+        "- The watch face is visible.",
+        "- It shows the time as 10:10.",
+        "2. **Second Image (Person Holding a Clock):**",
+        "- The clock is held in front of the person.",
+        "-",
+        "It also shows the same time as the watch, which is 11:11.",
+        "Given this both images show the same times, the correct answer is:",
+        "(A)",
+        "They are both show the time 1:00"
+      ],
+      "per_chunk_attribution": [
+        {
+          "chunk_id": 0,
+          "chunk_text": "To determine if the time is the same in both images, let's analyze each one step by:",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 1,
+          "chunk_text": "1. **First Image (Watch on a Pear):**",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 2,
+          "chunk_text": "- The watch face is visible.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 3,
+          "chunk_text": "- It shows the time as 10:10.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 4,
+              "source_text": "Yes, they are both at 9 o'clock"
+            }
+          ]
+        },
+        {
+          "chunk_id": 4,
+          "chunk_text": "2. **Second Image (Person Holding a Clock):**",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 1
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 5,
+          "chunk_text": "- The clock is held in front of the person.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 1
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 6,
+          "chunk_text": "-",
+          "image_sources_curated": [],
+          "text_sources_curated": []
+        },
+        {
+          "chunk_id": 7,
+          "chunk_text": "It also shows the same time as the watch, which is 11:11.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 1
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 4,
+              "source_text": "Yes, they are both at 9 o'clock"
+            },
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 8,
+          "chunk_text": "Given this both images show the same times, the correct answer is:",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 5,
+              "source_text": "(B)"
+            },
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 9,
+          "chunk_text": "(A)",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 5,
+              "source_text": "(B)"
+            }
+          ]
+        },
+        {
+          "chunk_id": 10,
+          "chunk_text": "They are both show the time 1:00",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 4,
+              "source_text": "Yes, they are both at 9 o'clock"
+            },
+            {
+              "source_chunk_id": 6,
+              "source_text": "Yes, they are both at 12 o'clock"
+            },
+            {
+              "source_chunk_id": 2,
+              "source_text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+            }
+          ]
+        }
+      ]
+    },
+    "input_text_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          0,
+          8
+        ],
+        "text": "Answer the question based on the images provided."
+      },
+      {
+        "chunk_id": 1,
+        "input_id_span": [
+          9,
+          15
+        ],
+        "text": "Explain your reasoning step by step."
+      },
+      {
+        "chunk_id": 2,
+        "input_id_span": [
+          16,
+          35
+        ],
+        "text": "Is the time shown in clock or watch in both <image> and <image> the same?"
+      },
+      {
+        "chunk_id": 3,
+        "input_id_span": [
+          36,
+          37
+        ],
+        "text": "(A)"
+      },
+      {
+        "chunk_id": 4,
+        "input_id_span": [
+          38,
+          47
+        ],
+        "text": "Yes, they are both at 9 o'clock"
+      },
+      {
+        "chunk_id": 5,
+        "input_id_span": [
+          49,
+          50
+        ],
+        "text": "(B)"
+      },
+      {
+        "chunk_id": 6,
+        "input_id_span": [
+          51,
+          61
+        ],
+        "text": "Yes, they are both at 12 o'clock"
+      },
+      {
+        "chunk_id": 7,
+        "input_id_span": [
+          63,
+          70
+        ],
+        "text": "(C) No, they show different time"
+      }
+    ],
+    "input_image_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          71,
+          288
+        ]
+      },
+      {
+        "chunk_id": 1,
+        "input_id_span": [
+          289,
+          506
+        ]
+      }
+    ]
+  },
+  {
+    "id": 274,
+    "task": "vqa",
+    "source_dataset": "MANTIS",
+    "modality": "image_text",
+    "prompt": "Answer the question based on the images provided. Explain your reasoning step by step.\n",
+    "question": [
+      {
+        "text": "Do both <image> and <image> show a place in Osaka? \n(A) Image 1 does but Image 2 not\n(B) Image 2 does but Image 1 not\n(C) Both images do"
+      },
+      {
+        "image": "examples/media/274_0.jpg"
+      },
+      {
+        "image": "examples/media/274_1.jpg"
+      }
+    ],
+    "answer": "Both images do",
+    "response": "To determine if both images show a location in Osaka, let's analyze each image step by:\n\n1. **Image 1 Analysis:**\n   - The sign in the image reads \"新大阪・博多 方面 for Shin-Ōsaka, Hakata.\"\n   - This indicates that the location is related to the train station in Osaka.\n   - Shin-ōsaka is a major railway station in the city of Osaka.\n\n2. **Second Image Analysis:*\n   - There is a sign with Japanese text, which translates to \"Nishinakyo Katsudon\" (a type of Japanese dish).\n   - Below the sign, there is a mention of \"Osaka Nishinagyo Sankyo Katsu,\" which refers to a specific area in Osaka known for its food stalls and street food.\n\nBased on the analysis:\n- Image  1 clearly shows a location related to Osaka, specifically the train stations in Shin- Ōsaka and Hakata.\n- Image shows a specific food stall in the Nishikagyo area of Osaka, which is also in Osaka.\n\nTherefore, both images depict places in Osaka. The correct answer is:\n\n(C) both images do)",
+    "attribution": {
+      "gen_chunks": [
+        "To determine if both images show a location in Osaka, let's analyze each image step by:",
+        "1. **Image 1 Analysis:**",
+        "- The sign in the image reads \"新大阪・博多 方面 for Shin-Ōsaka, Hakata.",
+        "\"",
+        "- This indicates that the location is related to the train station in Osaka.",
+        "- Shin-ōsaka is a major railway station in the city of Osaka.",
+        "2. **Second Image Analysis:*",
+        "- There is a sign with Japanese text, which translates to \"Nishinakyo Katsudon\" (a type of Japanese dish).",
+        "- Below the sign, there is a mention of \"Osaka Nishinagyo Sankyo Katsu,\" which refers to a specific area in Osaka known for its food stalls and street food.",
+        "Based on the analysis:",
+        "- Image  1 clearly shows a location related to Osaka, specifically the train stations in Shin- Ōsaka and Hakata.",
+        "- Image shows a specific food stall in the Nishikagyo area of Osaka, which is also in Osaka.",
+        "Therefore, both images depict places in Osaka.",
+        "The correct answer is:",
+        "(C) both images do)"
+      ],
+      "per_chunk_attribution": [
+        {
+          "chunk_id": 0,
+          "chunk_text": "To determine if both images show a location in Osaka, let's analyze each image step by:",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 1,
+          "chunk_text": "1. **Image 1 Analysis:**",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 3,
+              "source_text": "(A) Image 1 does but Image 2 not"
+            }
+          ]
+        },
+        {
+          "chunk_id": 2,
+          "chunk_text": "- The sign in the image reads \"新大阪・博多 方面 for Shin-Ōsaka, Hakata.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 3,
+          "chunk_text": "\"",
+          "image_sources_curated": [],
+          "text_sources_curated": []
+        },
+        {
+          "chunk_id": 4,
+          "chunk_text": "- This indicates that the location is related to the train station in Osaka.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 5,
+          "chunk_text": "- Shin-ōsaka is a major railway station in the city of Osaka.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 6,
+          "chunk_text": "2. **Second Image Analysis:*",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 7,
+          "chunk_text": "- There is a sign with Japanese text, which translates to \"Nishinakyo Katsudon\" (a type of Japanese dish).",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 1
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 8,
+          "chunk_text": "- Below the sign, there is a mention of \"Osaka Nishinagyo Sankyo Katsu,\" which refers to a specific area in Osaka known for its food stalls and street food.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 1
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 9,
+          "chunk_text": "Based on the analysis:",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 1,
+              "source_text": "Explain your reasoning step by step."
+            },
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 10,
+          "chunk_text": "- Image  1 clearly shows a location related to Osaka, specifically the train stations in Shin- Ōsaka and Hakata.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 0
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            },
+            {
+              "source_chunk_id": 3,
+              "source_text": "(A) Image 1 does but Image 2 not"
+            }
+          ]
+        },
+        {
+          "chunk_id": 11,
+          "chunk_text": "- Image shows a specific food stall in the Nishikagyo area of Osaka, which is also in Osaka.",
+          "image_sources_curated": [
+            {
+              "source_chunk_id": 1
+            }
+          ],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 12,
+          "chunk_text": "Therefore, both images depict places in Osaka.",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 2,
+              "source_text": "Do both <image> and <image> show a place in Osaka?"
+            }
+          ]
+        },
+        {
+          "chunk_id": 13,
+          "chunk_text": "The correct answer is:",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 4,
+              "source_text": "(B) Image 2 does but Image 1 not"
+            }
+          ]
+        },
+        {
+          "chunk_id": 14,
+          "chunk_text": "(C) both images do)",
+          "image_sources_curated": [],
+          "text_sources_curated": [
+            {
+              "source_chunk_id": 5,
+              "source_text": "(C) Both images do"
+            }
+          ]
+        }
+      ]
+    },
+    "input_text_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          0,
+          8
+        ],
+        "text": "Answer the question based on the images provided."
+      },
+      {
+        "chunk_id": 1,
+        "input_id_span": [
+          9,
+          15
+        ],
+        "text": "Explain your reasoning step by step."
+      },
+      {
+        "chunk_id": 2,
+        "input_id_span": [
+          16,
+          30
+        ],
+        "text": "Do both <image> and <image> show a place in Osaka?"
+      },
+      {
+        "chunk_id": 3,
+        "input_id_span": [
+          32,
+          42
+        ],
+        "text": "(A) Image 1 does but Image 2 not"
+      },
+      {
+        "chunk_id": 4,
+        "input_id_span": [
+          44,
+          54
+        ],
+        "text": "(B) Image 2 does but Image 1 not"
+      },
+      {
+        "chunk_id": 5,
+        "input_id_span": [
+          56,
+          60
+        ],
+        "text": "(C) Both images do"
+      }
+    ],
+    "input_image_chunks": [
+      {
+        "chunk_id": 0,
+        "input_id_span": [
+          61,
+          278
+        ]
+      },
+      {
+        "chunk_id": 1,
+        "input_id_span": [
+          279,
+          496
+        ]
+      }
+    ]
+  }
+]

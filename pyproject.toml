@@ -11,10 +11,19 @@ requires-python = ">=3.9"
 authors = [
   { name = "Qianqi Yan" }
 ]
-dependencies = []
+dependencies = [
+  "torch",
+  "transformers",
+  "numpy",
+  "tqdm",
+  "Pillow",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.scripts]
+omnitrace = "omnitrace.cli:main"
