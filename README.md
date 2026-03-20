@@ -221,6 +221,42 @@ python scripts/run_demo.py trace \
 
 ---
 
+## 📊 Attribution Performance
+
+**Attribution performance across omni-modal models and tasks.**  
+OT<sub>AttMean</sub>, OT<sub>RawAtt</sub>, and OT<sub>AttGrads</sub> denote OmniTrace instantiated with mean-pooled attention, raw attention, and gradient-based scoring signals, respectively.  
+$\dagger$ indicates results not reported due to computational constraints.  
+$\times$ indicates the method is not applicable.
+
+---
+
+### Qwen2.5-Omni-7B
+
+| Method | Text F1 (Summ.) | Image F1 (Summ.) | Image F1 (QA) | Time F1 (Audio Summ.) | Time F1 (Audio QA) | Time F1 (Video QA) |
+|--------|----------------|------------------|---------------|----------------------|--------------------|--------------------|
+| **OT<sub>AttMean</sub>** | **75.66** | **76.59** | 56.60 | **83.12** | **49.90** | **40.16** |
+| OT<sub>RawAtt</sub> | 72.51 | 51.82 | **65.44** | 76.69 | 47.64 | 36.53 |
+| OT<sub>AttGrads</sub> | 67.70 | 42.24 | 65.02 | † | 47.56 | † |
+| Self-Attribution | 9.25 | 40.60 | 61.03 | 4.43 | 29.01 | 13.67 |
+| Embed<sub>processor</sub> | 17.30 | 14.55 | 36.88 | × | × | × |
+| Embed<sub>CLIP</sub> | 17.20 | 3.54 | 6.32 | × | × | × |
+| Random | 10.98 | 8.38 | 24.70 | × | × | × |
+
+---
+
+### MiniCPM-o 4.5-9B
+
+| Method | Text F1 (Summ.) | Image F1 (Summ.) | Image F1 (QA) | Time F1 (Audio Summ.) | Time F1 (Audio QA) | Time F1 (Video QA) |
+|--------|----------------|------------------|---------------|----------------------|--------------------|--------------------|
+| OT<sub>AttMean</sub> | 30.57 | 75.43 | 37.00 | 33.52 | **46.94** | **22.85** |
+| **OT<sub>RawAtt</sub>** | **37.32** | **76.46** | **45.41** | **49.21** | 41.06 | 21.59 |
+| Self-Attribution | 9.06 | 66.53 | 39.39 | 0.08 | 34.66 | 18.26 |
+| Embed<sub>processor</sub> | 18.02 | 7.14 | 5.98 | × | × | × |
+| Embed<sub>CLIP</sub> | 17.98 | 5.55 | 5.32 | × | × | × |
+| Random | 12.05 | 10.03 | 22.96 | × | × | × |
+
+---
+
 ## 💡 Tips
 
 - Always run from the repo root
