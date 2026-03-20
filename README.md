@@ -34,15 +34,9 @@ tracer = OmniTracer(
 sample = {
     "prompt": "Answer the question based on the images provided. Explain your reasoning step by step.",
     "question": [
-        {
-            "text": "Is the time shown in clock or watch in both <image> and <image> the same?\n(A) Yes, they are both at 9 o'clock\n(B) Yes, they are both at 12 o'clock\n(C) No, they show different time"
-        },
-        {
-            "image": "examples/media/262_0.jpg"
-        },
-        {
-            "image": "examples/media/262_1.jpg"
-        }
+        {"text": "Is the time shown in clock or watch in both <image> and <image> the same?\n(A) Yes, they are both at 9 o'clock\n(B) Yes, they are both at 12 o'clock\n(C) No, they show different time"},
+        {"image": "examples/media/262_0.jpg"},
+        {"image": "examples/media/262_1.jpg"}
     ],
 }
 
@@ -50,12 +44,8 @@ sample = {
 sample = {
     "prompt": "Answer the question based on the audio provided. Explain your reasoning step by step.\n",
     "question": [
-        {
-            "text": "What was the last sound in the sequence?\nA. footsteps\nB. dog_barking\nC. camera_shutter_clicking\nD. tapping_on_glass"
-        },
-        {
-            "audio": "examples/media/b7701ab1-c37e-49f2-8ad9-7177fe0465e9.wav"
-        }
+        {"text": "What was the last sound in the sequence?\nA. footsteps\nB. dog_barking\nC. camera_shutter_clicking\nD. tapping_on_glass"},
+        {"audio": "examples/media/b7701ab1-c37e-49f2-8ad9-7177fe0465e9.wav"}
     ],
 }
 
@@ -63,12 +53,8 @@ sample = {
 sample = {
     "prompt": "Answer the question based on the video provided. Explain your reasoning step by step.\n",
     "question": [
-        {
-            "text": "What type of weapon does the slain legend retrieve?\nA. Sword\nB. Axe\nC. Gun\nD. Spear"
-        },
-        {
-            "video": "examples/media/6Z_XNM_iT4g.mp4"
-        }
+        {"text": "What type of weapon does the slain legend retrieve?\nA. Sword\nB. Axe\nC. Gun\nD. Spear"},
+        {"video": "examples/media/6Z_XNM_iT4g.mp4"}
     ],
 }
 
@@ -86,7 +72,7 @@ python scripts/run_demo.py \
   --method attmean
 ```
 
-### 📂 Input Format
+#### 📂 Input Format
 The input file should be a JSON list of samples:
 ```json
 [
@@ -94,39 +80,25 @@ The input file should be a JSON list of samples:
     "id": 0,
     "prompt": "Answer the question based on the images provided. Explain your reasoning step by step.\n",
     "question": [
-        {
-            "text": "Is the time shown in clock or watch in both <image> and <image> the same?\n(A) Yes, they are both at 9 o'clock\n(B) Yes, they are both at 12 o'clock\n(C) No, they show different time"
-        },
-        {
-            "image": "examples/media/262_0.jpg"
-        },
-        {
-            "image": "examples/media/262_1.jpg"
-        }
+        {"text": "Is the time shown in clock or watch in both <image> and <image> the same?\n(A) Yes, they are both at 9 o'clock\n(B) Yes, they are both at 12 o'clock\n(C) No, they show different time"},
+        {"image": "examples/media/262_0.jpg"},
+        {"image": "examples/media/262_1.jpg"}
     ],
   },
   {
     "id": 1,
     "prompt": "Answer the question based on the audio provided. Explain your reasoning step by step.\n",
     "question": [
-        {
-            "text": "What was the last sound in the sequence?\nA. footsteps\nB. dog_barking\nC. camera_shutter_clicking\nD. tapping_on_glass"
-        },
-        {
-            "audio": "examples/media/b7701ab1-c37e-49f2-8ad9-7177fe0465e9.wav"
-        }
+        {"text": "What was the last sound in the sequence?\nA. footsteps\nB. dog_barking\nC. camera_shutter_clicking\nD. tapping_on_glass"},
+        {"audio": "examples/media/b7701ab1-c37e-49f2-8ad9-7177fe0465e9.wav"}
     ],
   },
   {
     "id": 2,
     "prompt": "Answer the question based on the video provided. Explain your reasoning step by step.\n",
     "question": [
-        {
-            "text": "What type of weapon does the slain legend retrieve?\nA. Sword\nB. Axe\nC. Gun\nD. Spear"
-        },
-        {
-            "video": "examples/media/6Z_XNM_iT4g.mp4"
-        }
+        {"text": "What type of weapon does the slain legend retrieve?\nA. Sword\nB. Axe\nC. Gun\nD. Spear"},
+        {"video": "examples/media/6Z_XNM_iT4g.mp4"}
     ],
   },
 ]
