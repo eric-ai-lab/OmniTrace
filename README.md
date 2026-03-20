@@ -1,8 +1,15 @@
 This is the official repo for paper: "OmniTrace: A Unified Framework for Generation-Time Attribution in Omni-Modal LLMs".
 
 # OmniTrace
+[📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](#)
+OmniTrace is a **generation-time attribution framework** that traces model outputs back to multimodal inputs (text, image, audio, video) in a unified way.
+## ✨ Why OmniTrace?
 
-OmniTrace is a plug-and-play framework for attribution in multimodal generative models (text, image, audio, video).
+- Works for **decoder-only multimodal LLMs**
+- Supports **text, image, audio, and video**
+- Provides **generation-time attribution**
+- Plug-and-play across different backends (Qwen, MiniCPM)
+- No retraining required
 
 ---
 
@@ -21,7 +28,7 @@ pip install -e .
 pip install omnitrace
 ```
 
-### ⚡ Quick Start (Python API)
+## ⚡ Quick Start (Python API)
 ```python
 from omnitrace import OmniTracer
 
@@ -65,7 +72,7 @@ print(result)
 ### 🖥️ Command Line Usage
 Run OmniTrace on a dataset file:
 ```bash
-python scripts/run_demo.py \
+python scripts/run_demo.py trace \
   --questions_path examples/question_visual_text.json \
   --model_name qwen \
   --method attmean
@@ -141,17 +148,18 @@ Example:
 
 Example:
 ```json
-{"question": 
-    [
+{
+    "question": [
         {"text": "What was the last sound in the sequence?\nA. footsteps\nB. dog_barking\nC. camera_shutter_clicking\nD. tapping_on_glass"},
         {"audio": "examples/media/b7701ab1-c37e-49f2-8ad9-7177fe0465e9.wav"}
-    ],}
-{"question": 
-    [
+    ],
+}
+{
+    "question": [
         {"text": "What type of weapon does the slain legend retrieve?\nA. Sword\nB. Axe\nC. Gun\nD. Spear"},
         {"video": "examples/media/6Z_XNM_iT4g.mp4"}
-    ],}
-
+    ],
+}
 ```
 
 ### ⚠️ Notes
@@ -197,11 +205,10 @@ examples/question_video.json
 Run this to verify everything works:
 
 ```bash
-python scripts/run_demo.py \
+python scripts/run_demo.py trace \
   --questions_path examples/question_visual_text.json \
   --model_name qwen \
-  --method attmean \
-  --limit 1
+  --method attmean
 ```
 
 ---
@@ -210,7 +217,7 @@ python scripts/run_demo.py \
 
 - Always run from the repo root
 - Use relative paths for media files
-- Large models and attgrads method require H200 GPUs
+- `attgrads` may require high-memory GPUs (e.g., H100/H200)
 
 
 ---
