@@ -22,7 +22,7 @@ pip install omnitrace
 ```
 
 ### ⚡ Quick Start (Python API)
-```
+```python
 from omnitrace import OmniTracer
 
 tracer = OmniTracer(
@@ -88,6 +88,7 @@ python scripts/run_demo.py \
 
 ### 📂 Input Format
 The input file should be a JSON list of samples:
+```json
 [
   {
     "id": 0,
@@ -129,3 +130,4 @@ The input file should be a JSON list of samples:
     ],
   },
 ]
+```
