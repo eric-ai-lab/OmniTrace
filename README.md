@@ -5,6 +5,14 @@ This is the official repository for the paper:
 [📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](https://pypi.org/project/omnitrace/0.1.0/)
 
 OmniTrace is a **plug-and-play framework for generation-time attribution** in multimodal large language models (text, image, audio, video).
+
+## 🧠 Overview
+
+<p align="center">
+  <img src="docs/overview.png" width="100%" />
+</p>
+**Figure:** OmniTrace performs generation-time token tracing in decoder-only multimodal LLMs, producing unified span-level attribution across text, image, audio, and video inputs.
+
 - Works for **decoder-only multimodal LLMs**
 - Supports **text, image, audio, and video**
 - Provides **generation-time attribution**
