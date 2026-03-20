@@ -59,7 +59,6 @@ sample = {
 }
 
 result = tracer.trace(sample)
-
 print(result)
 ```
 
@@ -103,3 +102,119 @@ The input file should be a JSON list of samples:
   },
 ]
 ```
+
+## 🧩 Supported Modalities
+
+OmniTrace supports multimodal inputs with the following structure:
+
+### 🔹 Text + Image (Interleaved)
+You can provide **multiple text and image inputs**, interleaved:
+
+| Field    | Description                  |
+|----------|------------------------------|
+| `text`   | Input text (string or list)  |
+| `image`  | Path(s) to image(s)          |
+
+Example:
+```json
+{
+    "prompt": "Summarize the conversation.\n",
+    "question": [
+        { "text": "<TURN> \"I have most enjoyed painting poor, delicate children. I didn't know whether that will interest anyone.\" - Helene Schjerfbeck (1862-1946). The Convalescent (1888) is her most famous example of this. It shows the girl getting her energy back."},
+        {"image": "examples/media/-288980723939800020.jpg"},
+        {"text": "<TURN> Thank you for sharing this. 'The Wounded Angel' is my favourite painting in AteneumMuseum"},
+        {"image": "examples/media/8846049217870534914.jpg"},
+        {"image": "examples/media/-4402135406098345009.jpg"},
+        {"text": "<TURN> That's a very nice indeed!"}
+    ],
+}
+```
+
+---
+
+### 🔹 Audio/Video
+
+| Field    | Description                  |
+|----------|------------------------------|
+| `audio`  | Path to a single audio/video file  |
+| `question` / `text` | Prompt related to the audio/video |
+
+Example:
+```json
+{"question": 
+    [
+        {"text": "What was the last sound in the sequence?\nA. footsteps\nB. dog_barking\nC. camera_shutter_clicking\nD. tapping_on_glass"},
+        {"audio": "examples/media/b7701ab1-c37e-49f2-8ad9-7177fe0465e9.wav"}
+    ],}
+{"question": 
+    [
+        {"text": "What type of weapon does the slain legend retrieve?\nA. Sword\nB. Axe\nC. Gun\nD. Spear"},
+        {"video": "examples/media/6Z_XNM_iT4g.mp4"}
+    ],}
+
+```
+
+### ⚠️ Notes
+
+- **Text + Image** supports multiple inputs and interleaving.
+- **Audio and Video** currently support **only one file per sample**.
+- Each sample should include a prompt (`text` or `question`) describing the task.
+
+---
+
+## ⚙️ Arguments
+
+### `--questions_path`
+Path to input JSON file.
+
+### `--model_name`
+Supported:
+- `qwen`
+- `minicpm`
+
+### `--method`
+Attribution method:
+- `attmean`
+- `attraw`
+- `attgrads`
+
+---
+
+## 📁 Example Files
+
+We provide ready-to-run examples:
+
+```bash
+examples/question_visual_text.json
+examples/question_audio.json
+examples/question_video.json
+```
+
+---
+
+## 🧪 Minimal Test
+
+Run this to verify everything works:
+
+```bash
+python scripts/run_demo.py \
+  --questions_path examples/question_visual_text.json \
+  --model_name qwen \
+  --method attmean \
+  --limit 1
+```
+
+---
+
+## 💡 Tips
+
+- Always run from the repo root
+- Use relative paths for media files
+- Large models and attgrads method require H200 GPUs
+
+
+---
+
+## 📌 Citation
+
+(To be added)
