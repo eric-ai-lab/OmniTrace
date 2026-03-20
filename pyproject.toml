@@ -8,15 +8,18 @@ version = "0.1.0"
 description = "OmniTrace: multimodal attribution for generative models"
 readme = "README.md"
 requires-python = ">=3.9"
-authors = [
-  { name = "Qianqi Yan" }
-]
+authors = [{ name = "Your Name" }]
+
 dependencies = [
   "torch",
   "transformers",
   "numpy",
   "tqdm",
   "Pillow",
+  "opencv-python",
+  "soundfile",     
+  "librosa",       
+  "spacy"
 ]
 
 [tool.setuptools]

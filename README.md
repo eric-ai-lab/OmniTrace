@@ -1,7 +1,10 @@
-# OmniTrace: A Unified Framework for Generation-Time Attribution in Omni-Modal LLMs
-[📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](#)
+# OmniTrace
+This is the official repository for the paper:
+**"OmniTrace: A Unified Framework for Generation-Time Attribution in Omni-Modal LLMs"**
 
-#### ✨ OmniTrace is a **generation-time attribution framework** that traces model outputs back to multimodal inputs (text, image, audio, video) in a unified way.
+[📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](https://pypi.org/project/omnitrace/0.1.0/)
+
+OmniTrace is a **plug-and-play framework for generation-time attribution** in multimodal large language models (text, image, audio, video).
 - Works for **decoder-only multimodal LLMs**
 - Supports **text, image, audio, and video**
 - Provides **generation-time attribution**
@@ -12,17 +15,19 @@
 
 ## 🚀 Installation
 
-### Option 1: Install from GitHub (recommended)
+### Option 1: Install from PyPI (recommended)
+
+```bash
+pip install omnitrace
+```
+
+
+### Option 2: Install from GitHub (recommended)
 
 ```bash
 git clone https://github.com/Jackie-2000/OmniTrace.git
 cd OmniTrace
 pip install -e .
-```
-
-### Option 2: (Coming soon)
-```bash
-pip install omnitrace
 ```
 
 ## ⚡ Quick Start (Python API)

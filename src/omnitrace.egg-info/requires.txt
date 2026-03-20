@@ -3,3 +3,7 @@ transformers
 numpy
 tqdm
 Pillow
+opencv-python
+soundfile
+librosa
+spacy
