@@ -21,14 +21,35 @@ OmniTrace is a **plug-and-play framework for generation-time attribution** in mu
 
 ## 🚀 Installation
 
-### Option 1: Install from PyPI (recommended)
+### 🔧 Step 1: Install Backend Environments (Required)
+
+OmniTrace relies on multimodal backends. Please follow the official setup instructions:
+
+- Qwen2.5-Omni: https://github.com/QwenLM/Qwen2.5-Omni  
+- MiniCPM-o: https://github.com/OpenBMB/MiniCPM-o  
+
+We recommend creating a dedicated conda environment for each backend.
+
+Example:
+
+```bash
+conda create -n omnitrace python=3.10 -y
+conda activate omnitrace
+```
+
+Then install dependencies following the official repositories above.
+
+---
+
+### 📦 Step 2: Install OmniTrace
+
+#### Option 1: Install from PyPI (recommended)
 
 ```bash
 pip install omnitrace
 ```
 
-
-### Option 2: Install from GitHub (recommended)
+#### Option 2: Install from GitHub
 
 ```bash
 git clone https://github.com/Jackie-2000/OmniTrace.git
