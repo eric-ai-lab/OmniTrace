@@ -2,9 +2,8 @@ This is the official repo for paper: "OmniTrace: A Unified Framework for Generat
 
 # OmniTrace
 [📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](#)
-OmniTrace is a **generation-time attribution framework** that traces model outputs back to multimodal inputs (text, image, audio, video) in a unified way.
-## ✨ Why OmniTrace?
 
+✨ OmniTrace is a **generation-time attribution framework** that traces model outputs back to multimodal inputs (text, image, audio, video) in a unified way.
 - Works for **decoder-only multimodal LLMs**
 - Supports **text, image, audio, and video**
 - Provides **generation-time attribution**
