@@ -6,8 +6,8 @@ from typing import Any, Dict, List
 import numpy as np
 import torch
 
-from constants import QWEN_MODEL_PATH, QWEN_SPECIAL_TOKENS
-from core import (
+from omnitrace.constants import QWEN_MODEL_PATH, QWEN_SPECIAL_TOKENS
+from omnitrace.core import (
     ModelBundle,
     GenResult,
     GenerationConfig,
@@ -17,7 +17,7 @@ from core import (
     GRADIENT_METHODS,
     validate_method,
 )
-from gradients import compute_grad_scores_by_step
+from omnitrace.gradients import compute_grad_scores_by_step
 
 logger = logging.getLogger(__name__)
 

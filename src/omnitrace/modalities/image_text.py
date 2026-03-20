@@ -3,8 +3,8 @@ from __future__ import annotations
 import logging
 from typing import Any, Dict, List, Optional, Tuple
 
-from backends import prepare_inputs, generate_with_attn
-from core import (
+from omnitrace.backends import prepare_inputs, generate_with_attn
+from omnitrace.core import (
     GenerationConfig,
     DEFAULT_GENERATION_CONFIG,
     find_prompt_span,
@@ -12,7 +12,7 @@ from core import (
     curate_sources_with_conf,
     validate_method,
 )
-from mapping import build_image_text_token_mappings
+from omnitrace.mapping import build_image_text_token_mappings
 
 logger = logging.getLogger(__name__)
 

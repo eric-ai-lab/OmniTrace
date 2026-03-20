@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List
 
-from core import ModelBundle, GenResult, GenerationConfig, DEFAULT_GENERATION_CONFIG
+from omnitrace.core import ModelBundle, GenResult, GenerationConfig, DEFAULT_GENERATION_CONFIG
 
 from .qwen import (
     load_model_qwen,

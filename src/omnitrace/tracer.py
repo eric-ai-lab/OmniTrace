@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from backends import load_model
-from core import validate_method
-from modalities import trace_audio, trace_video, trace_image_text
+from omnitrace.backends import load_model
+from omnitrace.core import validate_method
+from omnitrace.modalities import trace_audio, trace_video, trace_image_text
 
 
 class OmniTracer:

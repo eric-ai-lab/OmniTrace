@@ -6,9 +6,9 @@ import subprocess
 from typing import Any, Dict, List, Optional
 import cv2
 
-from backends import prepare_inputs, generate_with_attn
-from constants import TEMPORAL_PATCH_SIZE, DEFAULT_VIDEO_FPS
-from core import (
+from omnitrace.backends import prepare_inputs, generate_with_attn
+from omnitrace.constants import TEMPORAL_PATCH_SIZE, DEFAULT_VIDEO_FPS
+from omnitrace.core import (
     GenerationConfig,
     DEFAULT_GENERATION_CONFIG,
     find_prompt_span,
@@ -17,7 +17,7 @@ from core import (
     curate_sources_with_conf,
     validate_method,
 )
-from mapping.temporal import (
+from omnitrace.mapping.temporal import (
     TimeBinMapper,
     VisionFrameMapper,
     build_token_mappings,

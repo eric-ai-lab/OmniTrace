@@ -5,7 +5,7 @@ from typing import List, Tuple
 
 import spacy
 
-from constants import COORD_SPLIT, SPACY_MODEL
+from omnitrace.constants import COORD_SPLIT, SPACY_MODEL
 
 
 _NLP = None

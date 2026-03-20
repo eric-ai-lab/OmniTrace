@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Optional, Protocol, Tuple
 
 import numpy as np
 
-from audio_processing.semantic_chunking import SemanticChunk
+from omnitrace.audio_processing.semantic_chunking import SemanticChunk
 from .types import TokenMapping
 
 

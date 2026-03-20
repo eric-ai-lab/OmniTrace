@@ -5,9 +5,9 @@ from typing import Any, Dict, List, Optional
 
 import librosa
 
-from backends import prepare_inputs, generate_with_attn
-from constants import DEFAULT_BIN_SIZE
-from core import (
+from omnitrace.backends import prepare_inputs, generate_with_attn
+from omnitrace.constants import DEFAULT_BIN_SIZE
+from omnitrace.core import (
     GenerationConfig,
     DEFAULT_GENERATION_CONFIG,
     find_prompt_span,
@@ -16,13 +16,13 @@ from core import (
     curate_sources_with_conf,
     validate_method,
 )
-from mapping.temporal import (
+from omnitrace.mapping.temporal import (
     AudioMapper,
     TimeBinMapper,
     SemanticChunkMapper,
     build_token_mappings,
 )
-from audio_processing import (
+from omnitrace.audio_processing import (
     SemanticChunk,
     ChunkerConfig,
     chunk_audio,

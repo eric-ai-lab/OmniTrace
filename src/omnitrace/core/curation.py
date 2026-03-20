@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Dict, List
 
-from constants import POS_W, SourceCurationConfig, DEFAULT_CURATE_CFG
+from omnitrace.constants import POS_W, SourceCurationConfig, DEFAULT_CURATE_CFG
 
 
 def curate_sources_with_conf(

@@ -4,8 +4,8 @@ import argparse
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
-from utils import *
-from tracer import OmniTracer
+from omnitrace.utils import *
+from omnitrace.tracer import OmniTracer
 
 # =========================================================
 # Sample conversion
