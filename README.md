@@ -2,7 +2,7 @@
 This is the official repository for the paper:
 **"OmniTrace: A Unified Framework for Generation-Time Attribution in Omni-Modal LLMs"**
 
-[📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](https://pypi.org/project/omnitrace/0.1.0/)
+[📄 Paper](#) | [🌐 Project Page](#) | [🤗 Demo](#) | [📦 PyPI](https://pypi.org/project/omnitrace)
 
 ## 🧠 Overview
 
