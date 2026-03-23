@@ -48,6 +48,36 @@ cd OmniTrace
 pip install -e .
 ```
 
+---
+
+### 🔑 Step 3: Set Up ElevenLabs API Key (Optional)
+
+OmniTrace uses [ElevenLabs Scribe v2](https://elevenlabs.io/docs/overview/intro) as the default ASR backend for **semantic audio chunking** (`--use_asr_for_audio`). If you plan to use this feature, you need an ElevenLabs API key.
+
+1. Register at [https://elevenlabs.io](https://elevenlabs.io) and obtain an API key from your profile settings.
+2. Set the environment variable:
+
+```bash
+export ELEVENLABS_API_KEY="your_api_key_here"
+```
+
+Or pass it directly via the Python API:
+
+```python
+from omnitrace.audio_processing import ChunkerConfig
+
+config = ChunkerConfig(elevenlabs_api_key="your_api_key_here")
+tracer.trace_audio(
+    prompt="...", audio="sample.wav",
+    audio_chunk_mode="semantic", asr_model="scribe_v2",
+    chunker_config=config,
+)
+```
+
+> **Note**: This step is only required when using semantic audio chunking (`--use_asr_for_audio`). Time-bin mode (the default) does not require an API key.
+
+---
+
 ## ⚡ Quick Start (Python API)
 ```python
 from omnitrace import OmniTracer
@@ -92,10 +122,19 @@ print(result)
 ### 🖥️ Command Line Usage
 Run OmniTrace on a dataset file:
 ```bash
+# Image-text / Audio
 python scripts/run_demo.py trace \
   --questions_path examples/question_visual_text.json \
   --model_name qwen \
   --method attmean
+
+# Video (with frame sampling and pixel budget control)
+python scripts/run_demo.py trace \
+  --questions_path examples/question_video.json \
+  --model_name qwen \
+  --method attmean \
+  --qwen-video-fps 2.0 \
+  --video-max-pixels 4200000
 ```
 
 #### 📂 Input Format
@@ -205,6 +244,15 @@ Attribution method:
 - `attmean`
 - `attraw`
 - `attgrads`
+
+### `--qwen-video-fps`
+Frame sampling rate in fps for video inputs (default: `2.0`).
+**Only affects the Qwen backend.** MiniCPM uses its own internal 1 FPS sampling and ignores this parameter.
+Lower values sample fewer frames, reducing computation and memory at the cost of temporal resolution.
+
+### `--video-max-pixels`
+Total pixel budget for all sampled video frames (default: `4200000`).
+Lower values reduce vision token count and GPU memory usage. Applies to both `qwen` and `minicpm` backends.
 
 ---
 

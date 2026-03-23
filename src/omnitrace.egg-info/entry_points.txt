@@ -1,2 +1,0 @@
-[console_scripts]
-omnitrace = omnitrace.cli:main
