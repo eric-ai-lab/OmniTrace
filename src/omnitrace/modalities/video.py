@@ -7,7 +7,7 @@ from typing import Any, Dict, List, Optional
 import cv2
 
 from omnitrace.backends import prepare_inputs, generate_with_attn
-from omnitrace.constants import TEMPORAL_PATCH_SIZE, DEFAULT_VIDEO_FPS
+from omnitrace.constants import TEMPORAL_PATCH_SIZE, DEFAULT_VIDEO_FPS, DEFAULT_VIDEO_MAX_PIXELS
 from omnitrace.core import (
     GenerationConfig,
     DEFAULT_GENERATION_CONFIG,
@@ -276,9 +276,10 @@ def trace_video(
         video:
             Path to video file.
         video_fps:
-            Optional frame sampling rate.
+            Frame sampling rate (Qwen only). MiniCPM uses its own internal
+            1 FPS sampling and ignores this parameter.
         video_max_pixels:
-            Optional total frame pixel budget.
+            Total pixel budget for sampled frames
         generation_config:
             Optional generation config override.
 
@@ -297,19 +298,26 @@ def trace_video(
     )
 
     video_duration = get_video_duration(video)
-    fps = video_fps or DEFAULT_VIDEO_FPS
-    bin_size = TEMPORAL_PATCH_SIZE / fps
+    is_qwen = bundle.model_type == "qwen"
+
+    if is_qwen:
+        fps = video_fps or DEFAULT_VIDEO_FPS
+        bin_size = TEMPORAL_PATCH_SIZE / fps
+    else:
+        # MiniCPM: internal 1 FPS sampling, each frame encoded independently
+        fps = 1.0
+        bin_size = 1.0
 
     logger.info(
         f"Video temporal bin size: {bin_size:.4f}s "
-        f"(temporal_patch={TEMPORAL_PATCH_SIZE}, fps={fps})"
+        f"(model={bundle.model_type}, temporal_patch={TEMPORAL_PATCH_SIZE}, fps={fps})"
     )
 
     messages = build_video_messages(
         video=video,
         prompt=prompt,
         video_max_pixels=video_max_pixels,
-        video_fps=video_fps,
+        video_fps=video_fps if is_qwen else None,
     )
 
     # ------------------------------------------------------------------

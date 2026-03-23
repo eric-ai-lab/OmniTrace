@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Any, Dict, List
 
+from omnitrace.constants import DEFAULT_VIDEO_FPS, DEFAULT_VIDEO_MAX_PIXELS
 from omnitrace.tracer import OmniTracer
 from omnitrace.utils import (
     detect_modality,
@@ -160,6 +161,8 @@ def run_demo(
     output_path: str = "output.json",
     limit: int | None = None,
     use_asr_for_audio: bool = False,
+    video_fps: float = DEFAULT_VIDEO_FPS,
+    video_max_pixels: int = DEFAULT_VIDEO_MAX_PIXELS,
 ) -> List[Dict[str, Any]]:
     repo_root = Path(".").resolve()
     items = load_json(questions_path)
@@ -188,6 +191,10 @@ def run_demo(
 
         if use_asr_for_audio and modality == "audio":
             trace_kwargs["audio_chunk_mode"] = "semantic"
+
+        if modality == "video":
+            trace_kwargs["video_fps"] = video_fps
+            trace_kwargs["video_max_pixels"] = video_max_pixels
 
         print(f"Detected modality: {modality}")
 
@@ -266,6 +273,21 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Use semantic chunking for audio instead of time bins",
     )
+    trace_parser.add_argument(
+        "--qwen-video-fps",
+        type=float,
+        default=DEFAULT_VIDEO_FPS,
+        help=f"Frame sampling rate in fps for Qwen video inputs (default: {DEFAULT_VIDEO_FPS}). "
+             "Only affects Qwen backend; MiniCPM uses its own internal 1 FPS sampling. "
+             "Lower values sample fewer frames.",
+    )
+    trace_parser.add_argument(
+        "--video-max-pixels",
+        type=int,
+        default=DEFAULT_VIDEO_MAX_PIXELS,
+        help=f"Total pixel budget for video frames (default: {DEFAULT_VIDEO_MAX_PIXELS}). "
+             "Lower values reduce vision tokens and memory. Applies to both Qwen and MiniCPM.",
+    )
 
     return parser
 
@@ -282,6 +304,8 @@ def main() -> None:
             output_path=args.output_path,
             limit=args.limit,
             use_asr_for_audio=args.use_asr_for_audio,
+            video_fps=args.qwen_video_fps,
+            video_max_pixels=args.video_max_pixels,
         )
     else:
         parser.error(f"Unknown command: {args.command}")
