@@ -52,10 +52,16 @@ pip install -e .
 
 ### 🔑 Step 3: Set Up ElevenLabs API Key (Optional)
 
-OmniTrace uses [ElevenLabs Scribe v2](https://elevenlabs.io/docs/overview/intro) as the default ASR backend for **semantic audio chunking** (`--use_asr_for_audio`). If you plan to use this feature, you need an ElevenLabs API key.
+OmniTrace uses [ElevenLabs Scribe v2](https://elevenlabs.io/docs/overview/intro) as the default ASR backend for **semantic audio chunking** (`--use_asr_for_audio`). If you plan to use this feature, first install the ElevenLabs SDK and set up an API key.
 
-1. Register at [https://elevenlabs.io](https://elevenlabs.io) and obtain an API key from your profile settings.
-2. Set the environment variable:
+1. Install the ElevenLabs package:
+
+```bash
+pip install elevenlabs
+```
+
+2. Register at [https://elevenlabs.io](https://elevenlabs.io) and obtain an API key from your profile settings.
+3. Set the environment variable:
 
 ```bash
 export ELEVENLABS_API_KEY="your_api_key_here"
@@ -128,12 +134,19 @@ python scripts/run_demo.py trace \
   --model_name qwen \
   --method attmean
 
-# Video (with frame sampling and pixel budget control)
+# Video with Qwen (supports --qwen-video-fps for frame sampling control)
 python scripts/run_demo.py trace \
   --questions_path examples/question_video.json \
   --model_name qwen \
   --method attmean \
   --qwen-video-fps 2.0 \
+  --video-max-pixels 4200000
+
+# Video with MiniCPM (uses internal 1 FPS sampling, no --qwen-video-fps needed)
+python scripts/run_demo.py trace \
+  --questions_path examples/question_video.json \
+  --model_name minicpm \
+  --method attmean \
   --video-max-pixels 4200000
 ```
 
