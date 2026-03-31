@@ -387,7 +387,7 @@ def trace_audio(
         method=method,
     )
 
-    audio_duration = float(librosa.get_duration(path=audio))
+    audio_duration = float(librosa.get_duration(filename=audio))
     messages = build_audio_messages(audio=audio, prompt=prompt)
 
     # ------------------------------------------------------------------

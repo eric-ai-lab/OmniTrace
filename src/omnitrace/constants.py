@@ -65,7 +65,8 @@ DEFAULT_BIN_SIZE = 1.0  # seconds
 
 # video temporal mapping
 TEMPORAL_PATCH_SIZE = 2 
-DEFAULT_VIDEO_FPS = 1.0
+DEFAULT_VIDEO_FPS = 2.0
+DEFAULT_VIDEO_MAX_PIXELS = 4200000
 
 # -------------------------
 # POS weighting (attribution)
