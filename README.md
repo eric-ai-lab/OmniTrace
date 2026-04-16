@@ -389,5 +389,15 @@ src/omnitrace/core/generation.py
 ---
 
 ## 📌 Citation
+If you use this work, please cite:
 
-(To be added)
+```bibtex
+@misc{yan2026omnitraceunifiedframeworkgenerationtime,
+      title={OmniTrace: A Unified Framework for Generation-Time Attribution in Omni-Modal LLMs}, 
+      author={Qianqi Yan and Yichen Guo and Ching-Chen Kuo and Shan Jiang and Hang Yin and Yang Zhao and Xin Eric Wang},
+      year={2026},
+      eprint={2604.13073},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2604.13073}, 
+}
